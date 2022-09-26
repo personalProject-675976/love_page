@@ -59,7 +59,7 @@
         </div>
     </div>
 
-    <audio id="media" src="./love.mp3" preload="auto" autoplay loop controls></audio>
+    <audio id="media" src="./love.mp3" preload="auto" autoplay loop></audio>
 
     <script>
         (function () {
@@ -121,7 +121,7 @@
             (
                 function (e)
                 {
-                    var audio = document.getElementById("media");
+                    var audio = document.getElementById("media/");
                     audio.play();
 
                     var offset = canvas.offset(), x, y;
