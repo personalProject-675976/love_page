@@ -117,23 +117,33 @@
             var foot = tree.footer;
             var hold = 1;
 
-            canvas.click(function (e) {
+            canvas.click
+            (
+                function (e)
+                {
+                    var audio = document.getElementById("media");
+                    audio.play();
 
-                var offset = canvas.offset(), x, y;
-                x = e.pageX - offset.left;
-                y = e.pageY - offset.top;
-                if (seed.hover(x, y)) {
-                    hold = 0;
-                    canvas.unbind("click");
-                    canvas.unbind("mousemove");
-                    canvas.removeClass('hand');
+                    var offset = canvas.offset(), x, y;
+                    x = e.pageX - offset.left;
+                    y = e.pageY - offset.top;
+                    if (seed.hover(x, y)) {
+                        hold = 0;
+                        canvas.unbind("click");
+                        canvas.unbind("mousemove");
+                        canvas.removeClass('hand');
+                    }
                 }
-            }).mousemove(function (e) {
-                var offset = canvas.offset(), x, y;
-                x = e.pageX - offset.left;
-                y = e.pageY - offset.top;
-                canvas.toggleClass('hand', seed.hover(x, y));
-            });
+            ).mousemove
+            (
+                function (e)
+                {
+                    var offset = canvas.offset(), x, y;
+                    x = e.pageX - offset.left;
+                    y = e.pageY - offset.top;
+                    canvas.toggleClass('hand', seed.hover(x, y));
+                }
+            );
 
             var seedAnimate = eval(Jscex.compile("async", function () {
                 seed.draw();
