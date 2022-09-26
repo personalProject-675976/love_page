@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>一封情书</title>
+    <title>时间</title>
     <link rel="icon" type="image/x-icon" href="https://i.loli.net/2021/06/03/lFg2V4WUcmkB98G.png">
     <meta name="language" content="zh-CN">
     <meta name="title" content="小孙同学">
@@ -22,6 +22,7 @@
 </head>
 
 <body>
+
     <div id="main">
         <div id="error">亲，您使用的浏览器无法支持即将显示的内容，请换成谷歌(<a
                 href="http://www.google.cn/chrome/intl/zh-CN/landing_chrome.html?hl=zh-CN&brand=CHMI">Chrome</a>)或者火狐(<a
@@ -46,20 +47,19 @@
                     <span class="say">真的希望你能给我个机会</span><br>
                     <span class="say">让我去爱你</span><br>
                     <br>
-                    <span class="say"><span class="space"></span> -- 你的，太阳。</span>
+                    <span class="say"><span class="space"></span> -- 李</span>
                 </div>
             </div>
             <div id="clock-box">
-                <a href="https://sunguoqi.com" target="_blank">星星</a> 和 <a href="https://sunguoqi.com"
-                    target="_blank">月亮</a> 在一起的
+                <u><a href="/getPicOfTt" target="_blank">婷婷</a></u> 和 <u><a href="/getPicOfLi" target="_blank">小李</a></u>
+                在一起的
                 <div id="clock"></div>
             </div>
             <canvas id="canvas" width="1100" height="680"></canvas>
         </div>
-
     </div>
 
-    <audio preload="auto" autoplay="" id="media" src="./love.mp3" autoplay preload loop="loop"></audio>
+    <audio id="media" src="./love.mp3" preload="auto" autoplay loop controls></audio>
 
     <script>
         (function () {
@@ -118,6 +118,7 @@
             var hold = 1;
 
             canvas.click(function (e) {
+
                 var offset = canvas.offset(), x, y;
                 x = e.pageX - offset.left;
                 y = e.pageY - offset.top;
@@ -192,8 +193,8 @@
 
             var textAnimate = eval(Jscex.compile("async", function () {
                 var together = new Date();
-                together.setFullYear(2022, 02, 25);
-                together.setHours(0);
+                together.setFullYear(2020, 5, 18);
+                together.setHours(17);
                 together.setMinutes(0);
                 together.setSeconds(0);
                 together.setMilliseconds(0);
@@ -220,8 +221,6 @@
             runAsync().start();
         })();
     </script>
-
-
 
 </body>
 
