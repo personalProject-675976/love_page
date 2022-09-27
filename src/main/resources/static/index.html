@@ -55,7 +55,7 @@
             </div>
         </div>
 
-        <audio id="media" src="./music/001.mp3" preload="auto" loop></audio>
+        <audio id="media" preload="auto" controls></audio>
 
         <script>
             (
@@ -215,64 +215,94 @@
                             }
                         )
                     );
-                    var moveAnimate = eval(Jscex.compile("async", function () {
-                        tree.snapshot("p1", 240, 0, 610, 680);
-                        while (tree.move("p1", 500, 0)) {
-                            foot.draw();
-                            $await(Jscex.Async.sleep(10));
-                        }
-                        foot.draw();
-                        tree.snapshot("p2", 500, 0, 610, 680);
+                    var moveAnimate = eval
+                    (
+                        Jscex.compile
+                        (
+                            "async",
+                            function ()
+                            {
+                                tree.snapshot("p1", 240, 0, 610, 680);
+                                while (tree.move("p1", 500, 0))
+                                {
+                                    foot.draw();
+                                    $await(Jscex.Async.sleep(10));
+                                }
+                                foot.draw();
+                                tree.snapshot("p2", 500, 0, 610, 680);
 
-                        // 会有闪烁不得意这样做, (＞﹏＜)
-                        canvas.parent().css("background", "url(" + tree.toDataURL('image/png') + ")");
-                        canvas.css("background", "#ffc0cb");
-                        $await(Jscex.Async.sleep(300));
-                        canvas.css("background", "none");
-                    }));
+                                // 会有闪烁不得意这样做
+                                canvas.parent().css("background", "url(" + tree.toDataURL('image/png') + ")");
+                                canvas.css("background", "#ffc0cb");
+                                $await(Jscex.Async.sleep(300));
+                                canvas.css("background", "none");
+                            }
+                        )
+                    );
+                    var jumpAnimate = eval
+                    (
+                        Jscex.compile
+                        (
+                            "async",
+                            function ()
+                            {
+                                while (true)
+                                {
+                                    tree.ctx.clearRect(0, 0, width, height);
+                                    tree.jump();
+                                    foot.draw();
+                                    $await(Jscex.Async.sleep(25));
+                                }
+                            }
+                        )
+                    );
+                    var textAnimate = eval
+                    (
+                        Jscex.compile
+                        (
+                            "async",
+                            function ()
+                            {
+                                var together = new Date();
+                                together.setFullYear(2020, 5, 18);
+                                together.setHours(17);
+                                together.setMinutes(0);
+                                together.setSeconds(0);
+                                together.setMilliseconds(0);
 
-                    var jumpAnimate = eval(Jscex.compile("async", function () {
-                        var ctx = tree.ctx;
-                        while (true) {
-                            tree.ctx.clearRect(0, 0, width, height);
-                            tree.jump();
-                            foot.draw();
-                            $await(Jscex.Async.sleep(25));
-                        }
-                    }));
-
-                    var textAnimate = eval(Jscex.compile("async", function () {
-                        var together = new Date();
-                        together.setFullYear(2020, 5, 18);
-                        together.setHours(17);
-                        together.setMinutes(0);
-                        together.setSeconds(0);
-                        together.setMilliseconds(0);
-
-                        $("#code").show().typewriter();
-                        $("#clock-box").fadeIn(500);
-                        while (true) {
-                            timeElapse(together);
-                            $await(Jscex.Async.sleep(1000));
-                        }
-                    }));
-
-                    var runAsync = eval(Jscex.compile("async", function () {
-                        $await(seedAnimate());
-                        $await(growAnimate());
-                        $await(flowAnimate());
-                        $await(moveAnimate());
-
-                        textAnimate().start();
-
-                        $await(jumpAnimate());
-                    }));
+                                $("#code").show().typewriter();
+                                $("#clock-box").fadeIn(500);
+                                while (true)
+                                {
+                                    timeElapse(together);
+                                    $await(Jscex.Async.sleep(1000));
+                                }
+                            }
+                        )
+                    );
+                    var runAsync = eval
+                    (
+                        Jscex.compile
+                        (
+                            "async",
+                            function ()
+                            {
+                                $await(seedAnimate());
+                                $await(growAnimate());
+                                $await(flowAnimate());
+                                $await(moveAnimate());
+                                textAnimate().start();
+                                $await(jumpAnimate());
+                            }
+                        )
+                    );
 
                     runAsync().start();
                 }
             )
             ();
         </script>
+        <script src="./index.js"></script>
 
     </body>
 
