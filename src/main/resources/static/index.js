@@ -64,6 +64,8 @@ function getMusicFilePath()
     let countStr = randomNum(1, countOfMusic) + '';
     let filePath = "./music/" + countStr.padStart(3, '0') + ".mp3"
 
+    console.log('播放随机音乐：', filePath);
+
     return filePath;
 }
 
