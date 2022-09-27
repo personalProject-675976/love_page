@@ -1,3 +1,7 @@
+const countOfMusic = 20;
+const countOfTtPic = 136;
+const countOfMine = 3;
+
 /*****************************************音乐播放器处理*****************************************/
 let canvas = $('#canvas');
 canvas.click
@@ -12,6 +16,32 @@ let audio = document.getElementById("media");
 audio.src = getMusicFilePath();
 audio.addEventListener('ended', playEndedHandler, false);
 /*****************************************音乐播放器处理_*****************************************/
+$('#tt').bind
+(
+    'click',
+    function (e)
+    {
+        e.preventDefault();
+        window.open(getTtPicPath());
+    }
+);
+$('#li').bind
+(
+    'click',
+    function (e)
+    {
+        e.preventDefault();
+        window.open(getLiPicPath());
+    }
+);
+
+
+
+
+
+
+
+
 
 
 /**
@@ -28,8 +58,32 @@ function playEndedHandler()
  */
 function getMusicFilePath()
 {
-    let countStr = randomNum(1, 20) + '';
+    let countStr = randomNum(1, countOfMusic) + '';
     let filePath = "./music/" + countStr.padStart(3, '0') + ".mp3"
+
+    return filePath;
+}
+
+/**
+ * 获取婷婷照片路径
+ * @returns {string} 路径
+ */
+function getTtPicPath()
+{
+    let countStr = randomNum(1, countOfTtPic) + '';
+    let filePath = "./pic_tt/" + countStr.padStart(3, '0') + ".JPG"
+
+    return filePath;
+}
+
+/**
+ * 获取我的照片路径
+ * @returns {string} 路径
+ */
+function getLiPicPath()
+{
+    let countStr = randomNum(1, countOfMine) + '';
+    let filePath = "./pic_li/" + countStr.padStart(3, '0') + ".JPG"
 
     return filePath;
 }
