@@ -1,8 +1,17 @@
-/***********************音乐播放器处理***********************/
+/*****************************************音乐播放器处理*****************************************/
+let canvas = $('#canvas');
+canvas.click
+(
+    function()
+    {
+        var audio = document.getElementById("media");
+        audio.play();
+    }
+)
 let audio = document.getElementById("media");
 audio.src = getMusicFilePath();
 audio.addEventListener('ended', playEndedHandler, false);
-/***********************音乐播放器处理_***********************/
+/*****************************************音乐播放器处理_*****************************************/
 
 
 /**
